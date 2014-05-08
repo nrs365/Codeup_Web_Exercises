@@ -1,0 +1,76 @@
+5/7/14
+
+php - 
+
+$poem = <<<POEM
+There was a young man of Japan
+Whose limericks never would scan.
+When asked why this was,
+He replied "It's because
+I always try to fit as many syllables into the last line as ever I possibly can.
+POEM; (must be on new line to close the herenow
+
+<<< can be caps or lowercase - will work either way
+caps just makes it stand out more
+can use var inside to have var interpolation
+
+define(ALL CAPS, value); (you can put it in lowercase but BP is caps) - define can't be used in line in a string, can only be used with concat with string
+
+
+define('MY_NAME', 'Ben');
+define(MY_NAME, 'Batschelet');
+echo MY_NAME; -> Ben
+echo Ben; -> Batschelet
+
+arrays -composites of data types, not scalar
+scalar?  simple?  something with echo?
+
+print_r($name);
+$my_name = array('Ben', 'Batschelet'); (older syntax - anything less than php 5.4)
+$my_name = ['Ben', 'Batschelet']; - - both are acceptable syntax; backwards compat
+numeric arrays - $variable[index]
+use single quotes in arrays
+$my_name = ['first' => 'John', 'last' => 'Doe']; (how to declare/define an associative array)
+
+multi-dimensional array - $user = array('name' => array('first' => 'John', 'last' => 'Doe'));
+print_r ($user['name']['first']);
+______________________________
+static vs. dynamic
+don't complile with php
+compilation (manual step) happens before you run the code - looks at source code and then interprets it and complies it
+interpreted lang like php - in the browser - it'll have the source code, but web server interprets it and then produces a result
+
+
+arrays again - $todos[0] = 'get groceries'; (replaced in the array)
+echo $todos[1]; - print just the single entry as specified in the index
+
+php returns the associative array in the order it was input/defined by the index/key; numeric arrays will always return in numeric order
+
+thinking of multidimensional arrays - table with rows and collums
+$rows = array (
+array(1,2,3,4),
+array(5,6,7,8),
+array(9,10,11,12)
+);
+$rows = [ 
+[1,2,3,4],
+[5,6,7,8],
+[9,10,11,12]
+];
+
+accessing multi dem array - looking for 7;
+echo $rows[1][2];
+
+$rows = [1 => ['a' => 1, 'b' => 2, 'c' => 3, 'd' =>4],
+[2 => 'a' => 5, 'b' => 6, 'c' => 7, 'd' => 8]etc];
+echo $rows ['1']['b'];
+
+echo $rows['3']['d'];
+
+assigning the reference of the variable x into y
+$some_number = 5;
+php > $another_number = &$some_number;
+php > echo $another_number;
+5
+so whatever is in x is going to be in y
+pass by reference and pass by value(making an alias that points to another var) (don't worry about it right now)
