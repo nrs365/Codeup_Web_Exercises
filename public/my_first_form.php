@@ -48,7 +48,7 @@
 			<textarea name="body" rows="5" cols="50"></textarea>
 		</p>
 		<p>
-			<button type="send">Send</button>
+			<button type="submit">Send</button>
 		</p>			 
 	</form>	
 </body>
