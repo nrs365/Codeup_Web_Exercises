@@ -49,11 +49,27 @@
 		</p>
 		<p>
 			<lable for="save">Would you like to save a copy to your sent folder?</lable>
-			<input type="checkbox" id="saved" name="saved" value="yes" checked>
+			<input type="checkbox" id="save" name="save" value="yes" checked>
 		</p>
 		<p>
 			<button type="submit">Send</button>
 		</p>			 
+	</form>	
+	<form>
+		<h2>Multiple Choice Test</h2>
+		<p>Who would I rather be reading?</p>
+		<p>
+			<lable for="camus">Albert Camus</lable>
+			<input type="radio" id="camus" name="writers" value="camus">
+		</p>
+		<p>
+			<lable for="salinger">J.D. Salinger</lable>
+			<input type="radio" id="salinger" name="writers" value="salinger">
+		</p>
+		<p>
+			<lable for="cisneros">Sandra Cisneros</lable>
+			<input type="radio" id="cisneros" name="writers" value="cisneros">
+		</p>		
 	</form>	
 </body>
 </html>
