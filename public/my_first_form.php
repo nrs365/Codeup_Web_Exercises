@@ -115,6 +115,19 @@
 				<input type="checkbox" id="brawl" name="games[]" value="brawl">Super Smash Bros. Brawl
 			</label>
 		</p>
-	</form>					
+	</form>
+	<form method="GET">
+		<h2>Select Testing</h2>
+		<label for="stars" name="stars">Were most of your stars out?</label>
+		<select id="stars" name="stars">
+			<option>Yes</option>
+			<option>No</option>
+		</select>
+		<br>
+		<label for="writing">Were you busy writing your heart out?</label>
+		<select id="writing" name="writing">
+			<option>Yes</option>
+			<option>No</option>
+		</select>					
 </body>
 </html>
