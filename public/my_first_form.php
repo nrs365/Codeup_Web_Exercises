@@ -55,9 +55,9 @@
 			<button type="submit">Send</button>
 		</p>			 
 	</form>	
-	<form>
-		<h2>Multiple Choice Test</h2>
-		<p>Who would I rather be reading?</p>
+	<h2>Multiple Choice Test</h2>
+	<p>1.) Who would I rather be reading?</p>
+		<form method="GET">
 		<p>
 			<lable for="camus">Albert Camus</lable>
 			<input type="radio" id="camus" name="writers" value="camus">
@@ -69,7 +69,22 @@
 		<p>
 			<lable for="cisneros">Sandra Cisneros</lable>
 			<input type="radio" id="cisneros" name="writers" value="cisneros">
-		</p>		
-	</form>	
+		</p>
+	</form>
+	<form method="GET">	
+		<p>2.) Which language do I enjoy studying the most?</p>
+		<p>
+			<lable for="french">French</lable>
+			<input type="radio" id="french" name="languages" value="french">
+		</p>
+		<p>
+			<lable for="spanish">Spanish</lable>
+			<input type="radio" id="spanish" name="languages" value="spanish">
+		</p>
+		<p>
+			<lable for="japanese">Japanese</lable>
+			<input type="radio" id="japanese" name="langauges" value="japanese">
+		</p>
+	</form>
 </body>
 </html>
