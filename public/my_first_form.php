@@ -36,19 +36,19 @@
 			<input id="to" name="to" type="text" placeholder="recipient" required>
 		</p>
 		<p>
-			<lable for="from">From:</lable>
+			<label for="from">From:</lable>
 			<input id="from" name="from" type="text" placeholder="sender" required>
 		</p>
 		<p>
-			<lable for="subject">Subject:</lable>
+			<label for="subject">Subject:</label>
 			<input id="subject" name="subject" type="text">
 		</p>
 		<p>
-			<lable for="body">Body</lable>
+			<label for="body">Body</label>
 			<textarea name="body" rows="5" cols="50"></textarea>
 		</p>
 		<p>
-			<lable for="save">Would you like to save a copy to your sent folder?</lable>
+			<label for="save">Would you like to save a copy to your sent folder?</label>
 			<input type="checkbox" id="save" name="save" value="yes" checked>
 		</p>
 		<p>
@@ -91,29 +91,29 @@
 		</p>
 		<p>3.) Which of these games did I waste as much of my life as possible playing?</p>
 		<p>
-			<lable for="mario/duckhunt">
+			<label for="mario/duckhunt">
 				<input type="checkbox" id="mario/duckunt" name="games[]" value="mario/duckhunt">Super Mario Bro/Duckhunt
-			</lable>	
+			</label>	
 		</p>
 		<p>
-			<lable for="SMB2">
+			<label for="SMB2">
 				<input type="checkbox" id="SMB2" name="games[]" value="SMB2">Super Mario Bros. 2
-			</lable>
+			</label>
 		</p>
 		<p>
-			<lable for="SMB3">
+			<label for="SMB3">
 				<input type="checkbox" id="SMB3" name="games[]" value="SMB3">Super Mario Bros. 3
-			</lable>	
+			</label>	
 		</p>
 		<p>
-			<lable for="melee">
+			<label for="melee">
 				<input type="checkbox" id="melee" name="games[]" value="melee">Super Smash Bros. Melee
-			</lable>	
+			</label>	
 		</p>
 		<p>
-			<lable for="brawl">
+			<label for="brawl">
 				<input type="checkbox" id="brawl" name="games[]" value="brawl">Super Smash Bros. Brawl
-			</lable>
+			</label>
 		</p>
 	</form>					
 </body>
