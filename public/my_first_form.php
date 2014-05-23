@@ -115,6 +115,19 @@
 				<input type="checkbox" id="brawl" name="games[]" value="brawl">Super Smash Bros. Brawl
 			</label>
 		</p>
+		<p>
+			<label for="jobs">Which of these have been my previous jobs? (Select all that apply) </label>
+			<select id="jobs" name="jobs[]" multiple>
+    			<option value="quiznos">Quiznos</option>
+    			<option value="northsideISD">Subsitute for Northside ISD</option>
+    			<option value="petsmart">PetsMart</option>
+    			<option value="English tutor">English tutor</option>
+    			<option value="bby152">Best Buy</option>
+    			<option value="chef">Chef</option>
+			</select>
+			<button type="submit">Submit!</button>
+		</p>
+
 	</form>
 	<form method="GET">
 		<h2>Select Testing</h2>
