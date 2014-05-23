@@ -83,8 +83,31 @@
 		</p>
 		<p>
 			<lable for="japanese">Japanese</lable>
-			<input type="radio" id="japanese" name="langauges" value="japanese">
+			<input type="radio" id="japanese" name="languages" value="japanese">
 		</p>
 	</form>
+	<form method="GET">
+		<p>3.) Which of these games did I waste as much of my life as possible playing?</p>
+		<p>
+			<lable for="mario/duckhunt">Super Mario Bros./Duck Hunt</lable>
+			<input type="checkbox" id="mario/duckunt" name="games[]" value="mario/duckhunt">
+		</p>
+		<p>
+			<lable for="SMB2">Super Mario Bros. 2</lable>
+			<input type="checkbox" id="SMB2" name="games[]" value="SMB2">
+		</p>
+		<p>
+			<lable for="SMB3">Super Mario Bros. 3</lable>
+			<input type="checkbox" id="SMB3" name="games[]" value="SMB3">
+		</p>
+		<p>
+			<lable for="melee">Super Smash Bros. Melee</lable>
+			<input type="checkbox" id="melee" name="games[]" value="melee">
+		</p>
+		<p>
+			<lable for="brawl">Super Smash Bro. Brawl</lable>
+			<input type="checkbox" id="brawl" name="games[]" value="brawl">
+		</p>
+	</form>					
 </body>
 </html>
