@@ -32,11 +32,11 @@
 	<form method="GET">
 		<h2>Compose an email</h2>
 		<p>
-			<label for="to">To:</lable>
+			<label for="to">To:</label>
 			<input id="to" name="to" type="text" placeholder="recipient" required>
 		</p>
 		<p>
-			<label for="from">From:</lable>
+			<label for="from">From:</label>
 			<input id="from" name="from" type="text" placeholder="sender" required>
 		</p>
 		<p>
@@ -55,39 +55,39 @@
 			<button type="submit">Send</button>
 		</p>			 
 	</form>	
-	<h2>Multiple Choice Test</h2>
 	<form method="GET">
-	<p>1.) Who would I rather be reading?</p>
+		<h2>Multiple Choice Test</h2>
+		<p>1.) Who would I rather be reading?</p>
 		<p>
-			<lable for="camus">
+			<label for="camus">
 				<input type="radio" id="camus" name="writers" value="camus">Albert Camus
-			</lable>	
+			</label>	
 		</p>
 		<p>
-			<lable for="salinger">
+			<label for="salinger">
 				<input type="radio" id="salinger" name="writers" value="salinger">J.D.Salinger
-			</lable>	
+			</label>	
 		</p>
 		<p>
-			<lable for="cisneros">
+			<label for="cisneros">
 				<input type="radio" id="cisneros" name="writers" value="cisneros">Sandra Cisneros
-			</lable>
+			</label>
 		</p>
 		<p>2.) Which language do I enjoy studying the most?</p>
 		<p>
-			<lable for="french">
+			<label for="french">
 				<input type="radio" id="french" name="languages" value="french">French
-			</lable>	
+			</label>	
 		</p>
 		<p>
-			<lable for="spanish">
+			<label for="spanish">
 				<input type="radio" id="spanish" name="languages" value="spanish">Spanish
-			</lable>	
+			</label>	
 		</p>
 		<p>
-			<lable for="japanese">
+			<label for="japanese">
 				<input type="radio" id="japanese" name="languages" value="japanese">Japanese
-			</lable>
+			</label>
 		</p>
 		<p>3.) Which of these games did I waste as much of my life as possible playing?</p>
 		<p>
@@ -125,23 +125,30 @@
     			<option value="bby152">Best Buy</option>
     			<option value="chef">Chef</option>
 			</select>
+		</p>	
+		<p>	
 			<button type="submit">Submit!</button>
-		</p>
-
+		</p>	
 	</form>
 	<form method="GET">
 		<h2>Select Testing</h2>
-		<label for="stars" name="stars">Were most of your stars out?</label>
-		<select id="stars" name="stars">
-			<option value="1">Yes</option>
-			<option value="0">No</option>
-		</select>
+		<p>
+			<label for="stars" name="stars">Were most of your stars out?</label>
+			<select id="stars" name="stars">
+				<option value="1">Yes</option>
+				<option value="0">No</option>
+			</select>
+		</p>	
 		<br>
-		<label for="writing">Were you busy writing your heart out?</label>
-		<select id="writing" name="writing">
-			<option value="1">Yes</option>
-			<option value="0">No</option>
-		</select>
-		<button type="submit">Submit!</button>					
+		<p>
+			<label for="writing">Were you busy writing your heart out?</label>
+			<select id="writing" name="writing">
+				<option value="1">Yes</option>
+				<option value="0">No</option>
+			</select>
+		</p>	
+		<p>
+			<button type="submit">Submit!</button>
+		</p>	
 </body>
 </html>
