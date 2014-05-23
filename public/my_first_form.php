@@ -120,14 +120,15 @@
 		<h2>Select Testing</h2>
 		<label for="stars" name="stars">Were most of your stars out?</label>
 		<select id="stars" name="stars">
-			<option>Yes</option>
-			<option>No</option>
+			<option value="1">Yes</option>
+			<option value="0">No</option>
 		</select>
 		<br>
 		<label for="writing">Were you busy writing your heart out?</label>
 		<select id="writing" name="writing">
-			<option>Yes</option>
-			<option>No</option>
-		</select>					
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</select>
+		<button type="submit">Submit!</button>					
 </body>
 </html>
