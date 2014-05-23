@@ -48,6 +48,10 @@
 			<textarea name="body" rows="5" cols="50"></textarea>
 		</p>
 		<p>
+			<lable for="save">Would you like to save a copy to your sent folder?</lable>
+			<input type="checkbox" id="saved" name="saved" value="yes" checked>
+		</p>
+		<p>
 			<button type="submit">Send</button>
 		</p>			 
 	</form>	
