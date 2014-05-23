@@ -56,57 +56,64 @@
 		</p>			 
 	</form>	
 	<h2>Multiple Choice Test</h2>
+	<form method="GET">
 	<p>1.) Who would I rather be reading?</p>
-		<form method="GET">
 		<p>
-			<lable for="camus">Albert Camus</lable>
-			<input type="radio" id="camus" name="writers" value="camus">
+			<lable for="camus">
+				<input type="radio" id="camus" name="writers" value="camus">Albert Camus
+			</lable>	
 		</p>
 		<p>
-			<lable for="salinger">J.D. Salinger</lable>
-			<input type="radio" id="salinger" name="writers" value="salinger">
+			<lable for="salinger">
+				<input type="radio" id="salinger" name="writers" value="salinger">J.D.Salinger
+			</lable>	
 		</p>
 		<p>
-			<lable for="cisneros">Sandra Cisneros</lable>
-			<input type="radio" id="cisneros" name="writers" value="cisneros">
+			<lable for="cisneros">
+				<input type="radio" id="cisneros" name="writers" value="cisneros">Sandra Cisneros
+			</lable>
 		</p>
-	</form>
-	<form method="GET">	
 		<p>2.) Which language do I enjoy studying the most?</p>
 		<p>
-			<lable for="french">French</lable>
-			<input type="radio" id="french" name="languages" value="french">
+			<lable for="french">
+				<input type="radio" id="french" name="languages" value="french">French
+			</lable>	
 		</p>
 		<p>
-			<lable for="spanish">Spanish</lable>
-			<input type="radio" id="spanish" name="languages" value="spanish">
+			<lable for="spanish">
+				<input type="radio" id="spanish" name="languages" value="spanish">Spanish
+			</lable>	
 		</p>
 		<p>
-			<lable for="japanese">Japanese</lable>
-			<input type="radio" id="japanese" name="languages" value="japanese">
+			<lable for="japanese">
+				<input type="radio" id="japanese" name="languages" value="japanese">Japanese
+			</lable>
 		</p>
-	</form>
-	<form method="GET">
 		<p>3.) Which of these games did I waste as much of my life as possible playing?</p>
 		<p>
-			<lable for="mario/duckhunt">Super Mario Bros./Duck Hunt</lable>
-			<input type="checkbox" id="mario/duckunt" name="games[]" value="mario/duckhunt">
+			<lable for="mario/duckhunt">
+				<input type="checkbox" id="mario/duckunt" name="games[]" value="mario/duckhunt">Super Mario Bro/Duckhunt
+			</lable>	
 		</p>
 		<p>
-			<lable for="SMB2">Super Mario Bros. 2</lable>
-			<input type="checkbox" id="SMB2" name="games[]" value="SMB2">
+			<lable for="SMB2">
+				<input type="checkbox" id="SMB2" name="games[]" value="SMB2">Super Mario Bros. 2
+			</lable>
 		</p>
 		<p>
-			<lable for="SMB3">Super Mario Bros. 3</lable>
-			<input type="checkbox" id="SMB3" name="games[]" value="SMB3">
+			<lable for="SMB3">
+				<input type="checkbox" id="SMB3" name="games[]" value="SMB3">Super Mario Bros. 3
+			</lable>	
 		</p>
 		<p>
-			<lable for="melee">Super Smash Bros. Melee</lable>
-			<input type="checkbox" id="melee" name="games[]" value="melee">
+			<lable for="melee">
+				<input type="checkbox" id="melee" name="games[]" value="melee">Super Smash Bros. Melee
+			</lable>	
 		</p>
 		<p>
-			<lable for="brawl">Super Smash Bro. Brawl</lable>
-			<input type="checkbox" id="brawl" name="games[]" value="brawl">
+			<lable for="brawl">
+				<input type="checkbox" id="brawl" name="games[]" value="brawl">Super Smash Bros. Brawl
+			</lable>
 		</p>
 	</form>					
 </body>
