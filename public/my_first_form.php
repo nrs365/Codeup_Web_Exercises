@@ -65,7 +65,7 @@
 		</p>
 		<p>
 			<label for="salinger">
-				<input type="radio" id="salinger" name="writers" value="salinger">J.D.Salinger
+				<input type="radio" id="salinger" name="writers" value="salinger">J.D. Salinger
 			</label>	
 		</p>
 		<p>
@@ -92,27 +92,27 @@
 		<p>3.) Which of these games did I waste as much of my life as possible playing?</p>
 		<p>
 			<label for="mario/duckhunt">
-				<input type="checkbox" id="mario/duckunt" name="games[]" value="mario/duckhunt">Super Mario Bro/Duckhunt
+				<input type="checkbox" id="mario/duckunt" name="games[]" value="mario/duckhunt">Super Mario Bro/Duckhunt (NES)
 			</label>	
 		</p>
 		<p>
 			<label for="SMB2">
-				<input type="checkbox" id="SMB2" name="games[]" value="SMB2">Super Mario Bros. 2
+				<input type="checkbox" id="SMB2" name="games[]" value="SMB2">Super Mario Bros. 2 (NES)
 			</label>
 		</p>
 		<p>
 			<label for="SMB3">
-				<input type="checkbox" id="SMB3" name="games[]" value="SMB3">Super Mario Bros. 3
+				<input type="checkbox" id="SMB3" name="games[]" value="SMB3">Super Mario Bros. 3 (NES)
 			</label>	
 		</p>
 		<p>
 			<label for="melee">
-				<input type="checkbox" id="melee" name="games[]" value="melee">Super Smash Bros. Melee
+				<input type="checkbox" id="melee" name="games[]" value="melee">Super Smash Bros. Melee (GameCube)
 			</label>	
 		</p>
 		<p>
 			<label for="brawl">
-				<input type="checkbox" id="brawl" name="games[]" value="brawl">Super Smash Bros. Brawl
+				<input type="checkbox" id="brawl" name="games[]" value="brawl">Super Smash Bros. Brawl (Wii)
 			</label>
 		</p>
 		<p>
@@ -121,9 +121,9 @@
     			<option value="quiznos">Quiznos</option>
     			<option value="northsideISD">Subsitute for Northside ISD</option>
     			<option value="petsmart">PetsMart</option>
+    			<option value="chef">Chef</option>
     			<option value="English tutor">English tutor</option>
     			<option value="bby152">Best Buy</option>
-    			<option value="chef">Chef</option>
 			</select>
 		</p>	
 		<p>	
