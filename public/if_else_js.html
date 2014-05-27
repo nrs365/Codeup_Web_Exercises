@@ -19,6 +19,9 @@ if (colors[0] === ('red') || ('orange') || ('yellow') || ('green') || ('blue') {
 	//do nothing?
 }
 
+//if (theNumber == 1) {
+	// don't really see what BB is doing differently
+//}
 // todo: When a color is encountered log a message that tells the color, and an object of that color.
 // //       Example: Blue is the color of the sky.
 // if (colors[0] === 'red') {
@@ -43,6 +46,30 @@ if (colors[0] === ('red') || ('orange') || ('yellow') || ('green') || ('blue') {
 // todo: Using the ternary operator, conditionally log a statement that
 //       says whether the random color matches your favorite color.
 
+//BB's solution
+var msg = (color == favorite) ? "Cool! Go Longhorns" : "What are you, an Aggie?";
+console.log(color + "? " + msg);
+//can do var msg = (color == favorite) ? console.log("Cool Go Longhorns") : console.log("What are you an aggie");
+switch(color[0]){
+	case 'red':
+		console.log('strawberries are red.');
+		break;
+	case 'orange':
+		console.log('owari satsuma are orange.');
+		break;
+	case 'yellow':
+		console.log('Kiiroitori is yellow.');
+		break;
+	case 'green':
+		console.log('Grass is green.');
+		break;
+	case 'blue':
+		console.log('The sky is blue.');
+		break;
+	default:
+		console.log('I don\'t know anything by that color');
+		break;			
+}
 </script>
 </body>
 </html>
