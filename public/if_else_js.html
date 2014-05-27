@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<meta charset="utf-8">
+	<title>If/Else in JavaScript</title>
 </head>
 <body>
 <script>
@@ -13,33 +14,30 @@ var color = colors[Math.floor(Math.random()*colors.length)];
 var favorite = 'orange'; // todo, change this to your favorite color from the list
 
 // todo: Create a block of if/else statements to check for every color except indigo and violet.
-if (colors[0] === ('red') || ('orange') || ('yellow') || ('green') || ('blue') {
-	console.log('the random color is ' + colors[0]);
+if (color === 'red' || 'orange' || 'yellow' || 'green' || 'blue') {
+	console.log('the random color is ' + color);
 } //else {
 	//do nothing?
-}
+
 
 //if (theNumber == 1) {
 	// don't really see what BB is doing differently
 //}
 // todo: When a color is encountered log a message that tells the color, and an object of that color.
 // //       Example: Blue is the color of the sky.
-// if (colors[0] === 'red') {
-// 	console.log('Strawberries are red.');
-// } else if (colors[0] === 'orange') {
-// 	console.log('Orange is the color of owari satsuma.');
-// } else if (colors[0] === 'yellow') {
-// 	console.log('Yellow is the color of Kiiroitori.');
-// } else if (colors[0] === 'green') {
-// 	console.log('Green is the color of grass.');
-// } else if (colors[0] === 'blue') {
-// 	console.log('Blue is the color of the sky.');
-// } else if (colors[0] === 'indigo') {
-// 	console.log('Indigo is the color of really beautiful flowers.');
-// } else if (colors[0] === 'violet') {
-// 	console.log('Violet is the color of more really beautiful flowers.')
-// }
-
+if (color === 'red') {
+	console.log('Strawberries are red.');
+} else if (color === 'orange') {
+	console.log('Orange is the color of owari satsuma.');
+} else if (color === 'yellow') {
+	console.log('Yellow is the color of Kiiroitori.');
+} else if (color === 'green') {
+	console.log('Green is the color of grass.');
+} else if (color === 'blue') {
+	console.log('Blue is the color of the sky.');
+} else {
+	console.log('I don\'t know anything by that color');
+}	
 // todo: Have a final else that will catch indigo and violet.
 // todo: In the else, log: I do not know anything by that color.
 
