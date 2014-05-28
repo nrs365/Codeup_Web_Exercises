@@ -12,9 +12,9 @@
 		// todo:
 		// Create a log statement that will log the number of elements in the names array.
 		console.log(namesArray.length);
-		for (var i = 0; i < namesArray.length; i++) {
-			console.log(namesArray[i]);
-		}
+		namesArray.forEach(function(element, index, array) {
+			console.log(index + ' ' + element);
+		});
 	</script>
 </body>
 </html>
