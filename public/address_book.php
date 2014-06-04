@@ -18,6 +18,10 @@
 // Add a delete link with a query string to delete the record. When the page reloads, the record should be gone, and the save csv should no longer have the entry.
 
 // Test that HTML and javascript cannot be executed in your application from XSS or HTML in an entry.
+// Add a destructor that echos "Class Dismissed!". Place an unset() at the end of your code. When you run your program, when does the message get displayed?
+
+//Remove the destructor and unset() methods. We'll cover better use cases for this method in future units.
+
 $address_book = [];
 $entry = []; 
 $filename = './addressbook.csv';
@@ -49,20 +53,19 @@ $address_book = open_file($filename);
 
 
 if(!empty($_POST)) {
-	if (empty($_POST['first_name']) || empty($_POST['last_name']) || empty($_POST['address']) || empty($_POST['city']) || empty($_POST['zip'])) {
+	if (empty($_POST['name']) || empty($_POST['address']) || empty($_POST['city']) || empty($_POST['zip'])) {
 	echo "Please enter all required fields.";
 	} else { 
-		$entry = [$_POST['first_name'], $_POST['last_name'], $_POST['address'], $_POST['city'], $_POST['state'], $_POST['zip']];
+		$entry = [$_POST['name'], $_POST['address'], $_POST['city'], $_POST['state'], $_POST['zip']];
 		array_push($address_book, $entry);
 		save_csv($filename, $address_book);
 	}
 }
-if (isset($_GET)) {
-	var_dump($_GET);
-	// unset from array
-	// save
+if (isset($_GET['key'])) {
+	unset($address_book[$_GET['key']]);
+	header('Location: address_book.php');
+	save_csv($filename, $address_book);
 }
-
 ?>
 <? var_dump($address_book);?>
 
@@ -77,8 +80,7 @@ if (isset($_GET)) {
 	
 <table border="1">
 <tr>
-	<th>First name: </th>
-	<th>Last name: </th>
+	<th>Name: </th>
 	<th>Address: </th>
 	<th>City: </th>
 	<th>State:</th>
@@ -90,7 +92,7 @@ if (isset($_GET)) {
 		<?php foreach ($entry as $value): ?>
 			<td><?= $value ?></td>
 		<?php endforeach ?>
-			<td><?= "<a href='?remove=$key'>Delete</a>" ?></td>
+			<td><?= "<a href=\"?key=$key\">Delete</a>" ?></td>
 	</tr>
 	<?php endforeach ?>
 	
@@ -100,12 +102,8 @@ if (isset($_GET)) {
 
 	<form method="POST" action="address_book.php">
 		<p>
-			<label for="first_name">First Name: </label>
-				<input type="text" id="first_name" name="first_name" required>
-		</p>
-		<p>
-			<label for="last_name">Last Name: </label>
-				<input type="text" id="last_name" name="last_name" required>
+			<label for="name">Name: </label>
+				<input type="text" id="name" name="name" required>
 		</p>
 		<p>
 			<label for="address">Street Address: </label>
