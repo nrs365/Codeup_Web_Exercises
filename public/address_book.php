@@ -4,7 +4,8 @@ $entry = [];
 $filename = './addressbook.csv';
 
 class Address_data_store {
-		public $filename = '';
+	public $filename = '';
+
 	function __construct($name_of_file) {
 		$this->filename = $name_of_file;
 	}	
@@ -31,6 +32,7 @@ class Address_data_store {
 		}
 		fclose($handle);
 	}	
+
 }
 $ads = new Address_data_store('./addressbook.csv');
 $address_book = $ads->open_file();
@@ -49,6 +51,19 @@ if(!empty($_POST)) {
 if (isset($_GET['key'])) {
 	unset($address_book[$_GET['key']]);
 	header('Location: address_book.php');
+	$ads->save_csv($address_book);
+}
+if(isset($_FILES['upload'])) {
+	var_dump($_FILES);
+	$filename = $_FILES['upload']['name'];
+	$upload_directory = '/vagrant/sites/codeup.dev/public/uploads/';
+	$upload_filename = basename($filename);
+	$saved_filename = $upload_directory . $upload_filename;
+	move_uploaded_file($_FILES['upload']['tmp_name'], $saved_filename);
+
+	$uploadedfile = new Address_data_store($saved_filename);
+	$uploadedentry = $uploadedfile->open_file();
+	$address_book = array_merge($address_book, $uploadedentry); 
 	$ads->save_csv($address_book);
 }
 ?>
@@ -75,10 +90,14 @@ if (isset($_GET['key'])) {
 </tr>
 <tr>
 	<?php foreach ($address_book as $key => $entry): ?>
+		<?if (!isset($entry['5'])) : ?>
+			<? array_push($entry, '')?>
+		<? endif ?>
 		<?php foreach ($entry as $value): ?>
 			<td><?= $value ?></td>
 		<?php endforeach ?>
-			<td><?= "<a href=\"?key=$key\">Delete</a>" ?></td>
+
+		<td><?= "<a href=\"?key=$key\">Delete</a>" ?></td>
 	</tr>
 	<?php endforeach ?>
 	
@@ -110,9 +129,18 @@ if (isset($_GET['key'])) {
 		<p>
 			<label for="phone">Phone: </label>
 				<input type="text" id="phone" name="phone">
-		</p>		
+		</p>
 		<p>
 			<button type="submit" value="save_entry">Save Entry</button>
+		</p>
+	</form>
+	<form method="POST" enctype="multipart/form-data" action="address_book.php">
+		<p>
+			<label for="upload">Upload: </label>
+				<input type="file" id="upload" name="upload">
+		</p>
+		<p>
+			<button type="submit">Upload File</button>
 		</p>
 	</form>
 </body>
