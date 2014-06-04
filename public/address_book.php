@@ -28,7 +28,10 @@ function open_file($filename) {
 		$filesize = filesize($filename);
    		$read = fopen($filename, 'r');
    		while(!feof($read)) {
-			$array[] = fgetcsv($read);
+   			$row = fgetcsv($read);
+			if (!empty($row)){
+				$array[] = $row;
+			}
 		}
    		fclose($read);
    	}
@@ -40,8 +43,10 @@ function save_csv($filename, $address_book) {
 	foreach ($address_book as $entry) {
 		fputcsv($handle, $entry);
 	}
-	fclose($read);
+	fclose($handle);
 }	
+$address_book = open_file($filename);
+
 
 if(!empty($_POST)) {
 	if (empty($_POST['first_name']) || empty($_POST['last_name']) || empty($_POST['address']) || empty($_POST['city']) || empty($_POST['zip'])) {
@@ -52,16 +57,15 @@ if(!empty($_POST)) {
 		save_csv($filename, $address_book);
 	}
 }
-//make all the $_POSTs an array ($address_book, $entry)pushing
-//return $address_book and
-// save_csv($address_book)
-//take $address_book and make it save to the file
-
-//take that $address_book and make it load so that other array entries can be added
-
-//save after that
+if (isset($_GET)) {
+	var_dump($_GET);
+	// unset from array
+	// save
+}
 
 ?>
+<? var_dump($address_book);?>
+
 
 <!DOCTYPE html>
 <html>
@@ -71,7 +75,6 @@ if(!empty($_POST)) {
 </head>
 <body>
 	
-<?var_dump($address_book);?>
 <table border="1">
 <tr>
 	<th>First name: </th>
@@ -80,37 +83,20 @@ if(!empty($_POST)) {
 	<th>City: </th>
 	<th>State:</th>
 	<th>Zip:</th>
+	<th>Delete:</th>
 </tr>
 <tr>
 	<?php foreach ($address_book as $key => $entry): ?>
 		<?php foreach ($entry as $value): ?>
 			<td><?= $value ?></td>
 		<?php endforeach ?>
+			<td><?= "<a href='?remove=$key'>Delete</a>" ?></td>
+	</tr>
 	<?php endforeach ?>
-</tr>	
+	
 
 </table>
-
-
-
-
-
-
-<!-- 	<table>
-		<th></th> <!--// do something with this heading 
-		<? open_file($filename); ?>
-			<?foreach ($address_book as $entry) { ?>
-			<tr>
-				<td><?= $entry[0]?></td>
-				<td><?= $entry[1]?></td>
-				<td><?= $entry[2]?></td>
-				<td><?= $entry[3]?></td>
-				<td><?= $entry[4]?></td>
-			</tr>
-		<? } ?>
-	</table> -->
 	
-	<? save_csv($filename, $address_book);?>
 
 	<form method="POST" action="address_book.php">
 		<p>
