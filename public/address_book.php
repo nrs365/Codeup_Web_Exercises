@@ -2,7 +2,8 @@
 $address_book = [];
 $entry = []; 
 $filename = './addressbook.csv';
-include('address_data_store.php');
+require_once('address_data_store.php');
+
 
 $ads = new Address_data_store('./addressbook.csv');
 $address_book = $ads->open_file();
