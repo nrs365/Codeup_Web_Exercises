@@ -4,10 +4,8 @@ $entry = [];
 $filename = './addressbook.csv';
 require_once('address_data_store.php');
 
-
 $ads = new Address_data_store('./addressbook.csv');
 $address_book = $ads->open_file();
-//$address_book = open_file($filename);
 
 if(!empty($_POST)) {
 	if (empty($_POST['name']) || empty($_POST['address']) || empty($_POST['city']) || empty($_POST['zip'])) {
@@ -37,9 +35,6 @@ if(isset($_FILES['upload'])) {
 	$ads->save_csv($address_book);
 }
 ?>
-<? var_dump($address_book);?>
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,35 +42,29 @@ if(isset($_FILES['upload'])) {
 	<title>Address Book</title>
 </head>
 <body>
-	
-<table border="1">
-<tr>
-	<th>Name</th>
-	<th>Address</th>
-	<th>City</th>
-	<th>State</th>
-	<th>Zip</th>
-	<th>Phone</th>
-	<th>Delete</th>
-</tr>
-<tr>
-	<?php foreach ($address_book as $key => $entry): ?>
-		<?if (!isset($entry['5'])) : ?>
+
+	<table border="1">
+	<tr>
+		<th>Name</th>
+		<th>Address</th>
+		<th>City</th>
+		<th>State</th>
+		<th>Zip</th>
+		<th>Phone</th>
+		<th>Delete</th>
+	</tr>
+	<tr>
+		<?php foreach ($address_book as $key => $entry): ?>
+			<?if (!isset($entry['5'])) : ?>
 			<? array_push($entry, '')?>
-		<? endif ?>
+			<? endif ?>
 		<?php foreach ($entry as $value): ?>
 			<td><?= $value ?></td>
 		<?php endforeach ?>
-
 		<td><?= "<a href=\"?key=$key\">Delete</a>" ?></td>
 	</tr>
-	<?php endforeach ?>
-	
-
-</table>
-	
-<?unset($address_book);?>
-
+		<?php endforeach ?>
+	</table>
 	<form method="POST" action="address_book.php">
 		<p>
 			<label for="name">Name: </label>
