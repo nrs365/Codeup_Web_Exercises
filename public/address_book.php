@@ -32,7 +32,9 @@ class Address_data_store {
 		}
 		fclose($handle);
 	}	
-
+	function __destruct() {
+		echo 'Class dismissed';
+	}
 }
 $ads = new Address_data_store('./addressbook.csv');
 $address_book = $ads->open_file();
@@ -104,6 +106,7 @@ if(isset($_FILES['upload'])) {
 
 </table>
 	
+<?unset($address_book);?>
 
 	<form method="POST" action="address_book.php">
 		<p>
