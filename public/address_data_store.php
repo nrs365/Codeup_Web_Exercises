@@ -4,7 +4,8 @@ class Address_data_store {
 
 	function __construct($name_of_file) {
 		$this->filename = $name_of_file;
-	}	
+	}
+		
 	function open_file() {
 		$array = [];
 		if (is_readable($this->filename) && filesize($this->filename) > 0) {
@@ -28,8 +29,5 @@ class Address_data_store {
 		}
 		fclose($handle);
 	}	
-	function __destruct() {
-		echo 'Class dismissed';
-	}
 }
 ?>
