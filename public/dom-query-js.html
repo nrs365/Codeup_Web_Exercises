@@ -27,22 +27,25 @@
         var subHeader = document.getElementById("sub-header");
 
         // todo: set the text color of subHeader to blue
-        subHeader.style['text-color'] = 'blue';
+        subHeader.style['color'] = 'blue';
 
         // todo: get all list items
         var listItems = document.getElementsByTagName('li');
 
         // todo: set text color on every other list item to grey
-        for (var i = 0; i <= listItems.length; i %= 1) {
-            listItems[i].style['background-color'] = 'grey';
-
+        for (var i = 0; i < listItems.length; i++) {
+            if(i % 2 == 1){
+            listItems[i].style['color'] = 'grey';
+            }
         }
 
         // todo: set text color of li with dbid = 1 to blue
-        var dbid_1 = document.getElementById('dbid="1"');
-        dbid_1.style['text-color'] = 'blue';
+        var dbId = listItems[i].attributes['data-dbid'].value;
+        if(dbId == "1") {
+        listItems[i].style['color'] = 'blue';
+        
         // todo: get all elements with class name sub-paragraph
-        var subParagraphs = getElementByClassName("sub-paragraph");
+        var subParagraphs = document.getElementByClassName("sub-paragraph");
 
         // todo: change the text in the first sub paragraph to "Mission Accomplished!"
         subParagraphs['0'].innerHTML = "Mission accomplished!";
