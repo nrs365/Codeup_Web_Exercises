@@ -8,30 +8,33 @@
     </style>
     <script src="/js/jquery.js"></script>
     <script>
-// $(document).ready(function() {
-//     alert( 'The DOM has finished loading!' );
-// });
+$(document).ready(function() {
+
 // .click()
 //$('document').ready(function() {
-$('p').css('font-size', '32px');
-        });
+//$('p').css('font-size', '32px');
+        //);
 $('h1').click(function() {
 	$(this).css('background-color', 'red');
-}
+});
+
 $('p').dblclick(function() {
 	$('p').css('font-size', '18px');
-}
+});
+
 $('li').hover(
 	function () {
 	$(this).css('color', 'red');
-} function() {
+},
+	function() {
 	$(this).css('color', 'black');
-}
+});
 
+});
 </script>
 </head>
 <body>
-    <h1></h1>
+    <h1><3</h1>
     <div class="important">
         <h3>They won't see us waving from such great heights</h3>
         <p>Come down now, they'll say</p>
@@ -43,5 +46,11 @@ $('li').hover(
     <p class="important">
         They won't see us waving from such great heights, come down now, they'll say
     </p>
+    <ul>
+    	<li>but everything looks perfect</li>
+    	<li>from far away</li>
+    	<li>come down now</li>
+    	<li>they'll say</li>
+    </ul>	
 </body>
 </html>
