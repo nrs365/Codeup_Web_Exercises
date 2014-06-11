@@ -4,13 +4,44 @@
 	<title>jQuery</title>
 </head>
 <body>
-<script src="/js/jquery.js"></script>
-
-<script>
-$(document).ready(function() {
-    alert( 'The DOM has finished loading!' );
-});
+    <style>
+    </style>
+    <script src="/js/jquery.js"></script>
+    <script>
+// $(document).ready(function() {
+//     alert( 'The DOM has finished loading!' );
+// });
+// .click()
+//$('document').ready(function() {
+$('p').css('font-size', '32px');
+        });
+$('h1').click(function() {
+	$(this).css('background-color', 'red');
+}
+$('p').dblclick(function() {
+	$('p').css('font-size', '18px');
+}
+$('li').hover(
+	function () {
+	$(this).css('color', 'red');
+} function() {
+	$(this).css('color', 'black');
+}
 
 </script>
+</head>
+<body>
+    <h1></h1>
+    <div class="important">
+        <h3>They won't see us waving from such great heights</h3>
+        <p>Come down now, they'll say</p>
+    </div>
+    <div class="not-important">
+        <h2>but everything looks perfect from far away, come down now, they'll say </h2>
+        <p>I tried my best to leave, this all on your machine but the persistent beat it sounded thin upon listening and that frankly will not fly you will hear the<span class="important">highest highs and lowest lows</span> with the windows down when this is guiding you home</p>
+    </div>
+    <p class="important">
+        They won't see us waving from such great heights, come down now, they'll say
+    </p>
 </body>
 </html>
