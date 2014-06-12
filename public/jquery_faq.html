@@ -16,6 +16,14 @@
 				event.preventDefault();
 				$('dd').toggleClass('invisible');
 			});
+			$('ul').each(function() {
+			$(this).children().first().css('font-weight', 'bold');
+				});
+			
+			$('li').click(function(event){
+				event.preventDefault();
+				$(this).toggleClass('invisible');// don't have to add the dot b/c it knows its a class already
+			});	
 		});
 	</script>	
 </head>
@@ -54,6 +62,20 @@
 		<dt>How do I make reservations for camping/lodging in national parks?</dt>
 			<dd class="invisible">For campground reservations go <a href="http://www.recreation.gov/">here</a>. Not all parks participate in this service, many campgrounds are first come, first served.</dd><br>
 	</dl>
-	<a href="#" id="link_answers">Click to show the answers</a>		
+	<a href="#" id="link_answers">Click to show the answers</a>	
+	<h3>Facts about Arches National Park</h3>
+	<ul>
+		<li>Arches is located on the Colorado River in Utah.</li>
+		<li>The park is geographically located atop an evaporite layver, pr saolt bed, which causes the formation of the arches, spires, and balanced rocks.</li>
+		<li>Despite Arches rugged exterior, the park is suseptable to damange from visitiors and harsh weather conditions, such as unpredicatable rainfall, lack of plant life which decreases the soil's resistance to, and recovery from, compressional forces such as foot traffic.</li>
+		<li>Designated areas and attractions inside of Arches are "The Devi's Garden", "The Windows", "Dark Angel", and the "Firey Furnace", an area of maze-like passages.</li>
+	</ul>
+	<h3>Facts about Badlands National Park</h3>
+		<ul>
+			<li>Badlands is located in South Dakota.</li>
+			<li>The designated wilderness area is the site of the reintroduction of the black-footed ferret, the most endangered land mammal in North America.</li>
+			<li>Pine Ridge Indian Reservation, location of Wounded Knee Massacre, is located in Badlands.</li>
+			<li>The White River Badlands is a popular location for fossil hunters.</li>
+
 </body>
 </html>
