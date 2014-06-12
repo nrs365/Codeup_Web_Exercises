@@ -1,0 +1,14 @@
+.box {        
+	height: 150px;
+	width: 150px;
+	border: 1px solid #CCC;
+	float:left;
+	border-collapse: collapse;
+}
+
+#container {
+	margin:auto;
+	height: 456px;
+	width: 456px;
+	border-collapse: collapse;
+}
