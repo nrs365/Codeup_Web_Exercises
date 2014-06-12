@@ -2,41 +2,41 @@
 <head>
 	<meta charset="utf-8">
 	<title>jQuery</title>
-</head>
-<body>
-    <style>
+	<style>
     </style>
     <script src="/js/jquery.js"></script>
     <script>
-$(document).ready(function() {
+	$(document).ready(function() {
 
-// .click()
-//$('document').ready(function() {
-//$('p').css('font-size', '32px');
-        //);
-$('h1').click(function() {
-	$(this).css('background-color', 'red');
-});
+		// .click()
+		//$('document').ready(function() {
+		//$('p').css('font-size', '32px');
+		        //);
+		$('h1').click(function() {
+			$(this).css('background-color', 'red');
+		});
 
-$('p').dblclick(function() {
-	$('p').css('font-size', '18px');
-});
+		$('p').dblclick(function() {
+			$('p').css('font-size', '18px');
+		});
 
-$('li').hover(
-	function () {
-	$(this).css('color', 'red');
-},
-	function() {
-	$(this).css('color', 'black');
-});
+		$('li').hover(
+			function () {
+			$(this).css('color', 'red');
+		},
+			function() {
+			$(this).css('color', 'black');
+		});
+		var title = $('#title')
+		alert(title.html());
 
-});
-</script>
+	});
+	</script>
 </head>
 <body>
     <h1><3</h1>
     <div class="important">
-        <h3>They won't see us waving from such great heights</h3>
+        <h3 id='title'>They won't see us waving from such great heights</h3>
         <p>Come down now, they'll say</p>
     </div>
     <div class="not-important">
