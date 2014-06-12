@@ -14,20 +14,20 @@
 		$(document).ready(function() {
 			$('#link_answers').click(function(event) {
 				event.preventDefault();
-				$('dd').toggle();
+				$('dd').fadeToggle();
 			});
 			$('ul').each(function() {
 			$(this).children().first().css('font-weight', 'bold');
 				});
 			
-			$('li').click(function(event){
-				event.preventDefault();
-				$(this).hide();// don't have to add the dot b/c it knows its a class already
+			//$('li').click(function(event){
+				//event.preventDefault();
+				//$(this).hide();// don't have to add the dot b/c it knows its a class already
 			$('h3').click(function() {
-				$(this).next().toggle();
-			})	
+				$(this).next().fadeToggle();
 			});	
-		});
+		});	
+	
 	</script>	
 </head>
 <body>
