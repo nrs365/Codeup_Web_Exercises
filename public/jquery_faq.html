@@ -14,7 +14,7 @@
 		$(document).ready(function() {
 			$('#link_answers').click(function(event) {
 				event.preventDefault();
-				$('dd').toggleClass('invisible');
+				$('dd').toggle();
 			});
 			$('ul').each(function() {
 			$(this).children().first().css('font-weight', 'bold');
@@ -22,7 +22,10 @@
 			
 			$('li').click(function(event){
 				event.preventDefault();
-				$(this).toggleClass('invisible');// don't have to add the dot b/c it knows its a class already
+				$(this).hide();// don't have to add the dot b/c it knows its a class already
+			$('h3').click(function() {
+				$(this).next().toggle();
+			})	
 			});	
 		});
 	</script>	
