@@ -9,9 +9,25 @@
 	</script>
 </head>
 <body>
+	
+
+	<h1>Whack-A-Mole</h1>
+	<h3 id="score"></h3>
+	<input id="start_button" type="button" value="start game" onclick="javascript:start_game();">
+
+	<div id="gameboard">	
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+	</div>
 	<script>
-		$(document).ready(function() {
-			alert("Are you ready?");
+
 			var score = 0;
 
 			function place_random_gamesquare() {
@@ -24,36 +40,29 @@
             	$(game_square[random_place]).html('<img class="mole" src="moroccomole.jpg" height="150" width="150">');    
            	};
 
-        	function whack() {
-                $('.mole').click(function(){
+        	//function whack() {
+                $('#gameboard').on('click', '.mole', function(){
                 	$(this).fadeOut();
-                	return score++;
+                	score++;
                 });
-            };
+            //};
+            function start_game() {
+               //clearTimeout(timer);
+               //add start timer;
+               //setInterval();//start the game
+               window.setInterval(function() {
+               		game_logic();
+               }, 1500);
+               //$.timer([setInterval()], 30000, false);
+            }
 
-            
-            setInterval(function() {
+            //actual game logic
+            var game_logic = function() {
                 place_random_gamesquare();
-                whack();
             	console.log(score);
             	$('#score').text("Score: " + score);
-            }, 1500);
-		});
-	 </script>
+            };
 
-	<h1>Whack-A-Mole</h1>
-	<h3 id="score"></h3>
-
-	<div id="gameboard">	
-		<div class="box"></div>
-		<div class="box"></div>
-		<div class="box"></div>
-		<div class="box"></div>
-		<div class="box"></div>
-		<div class="box"></div>
-		<div class="box"></div>
-		<div class="box"></div>
-		<div class="box"></div>
-	</div>	
+	 </script>	
 </body>
 </html>
