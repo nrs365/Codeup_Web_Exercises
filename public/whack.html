@@ -11,6 +11,7 @@
 <body>
 	<script>
 		$(document).ready(function() {
+			alert("Are you ready?");
 			var score = 0;
 
 			function place_random_gamesquare() {
@@ -29,23 +30,19 @@
                 	return score++;
                 });
             };
-            // function score(){
-            // 	// each time clicked, add one
-            // };
-            // // Begin Main Game Logic
 
+            
             setInterval(function() {
                 place_random_gamesquare();
                 whack();
             	console.log(score);
             	$('#score').text("Score: " + score);
             }, 1500);
-
 		});
 	 </script>
 
 	<h1>Whack-A-Mole</h1>
-	<h3 id="score"></h3><!-- <div id="score_count">document.getElementById('score');</div> -->
+	<h3 id="score"></h3>
 
 	<div id="gameboard">	
 		<div class="box"></div>
@@ -58,4 +55,5 @@
 		<div class="box"></div>
 		<div class="box"></div>
 	</div>	
-</body></html>
+</body>
+</html>
