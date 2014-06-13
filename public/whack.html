@@ -11,33 +11,41 @@
 <body>
 	<script>
 		$(document).ready(function() {
-		function place_random_gamesquare() {
-                
-					// clear all squares
-					$('.box').empty();
+			var score = 0;
 
-                    var random_place = Math.floor((Math.random(0,8) * 9) + 1);
-                    var game_square = $('.box');
+			function place_random_gamesquare() {
+			// clear all squares
+				$('.box').empty();
 
-                    $(game_square[random_place]).html('<img class="mole" src="moroccomole.jpg" height="150" width="150">');    
-                    };
+            	var random_place = Math.floor((Math.random(0,8) * 8) + 1);
+            	var game_square = $('.box');
 
-            function whack() {
-                    $('.mole').click(function(){
-                        $(this).fadeOut();
-                         });
-                    };
+            	$(game_square[random_place]).html('<img class="mole" src="moroccomole.jpg" height="150" width="150">');    
+           	};
 
-                // Begin Main Game Logic
+        	function whack() {
+                $('.mole').click(function(){
+                	$(this).fadeOut();
+                	return score++;
+                });
+            };
+            // function score(){
+            // 	// each time clicked, add one
+            // };
+            // // Begin Main Game Logic
 
-                setInterval(function() {
-                    place_random_gamesquare();
-                    whack();
-                }, 2000);
+            setInterval(function() {
+                place_random_gamesquare();
+                whack();
+            	console.log(score);
+            	$('#score').text("Score: " + score);
+            }, 1500);
+
 		});
 	 </script>
 
 	<h1>Whack-A-Mole</h1>
+	<h3 id="score"></h3><!-- <div id="score_count">document.getElementById('score');</div> -->
 
 	<div id="gameboard">	
 		<div class="box"></div>
@@ -50,5 +58,4 @@
 		<div class="box"></div>
 		<div class="box"></div>
 	</div>	
-
 </body></html>
