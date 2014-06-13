@@ -1,14 +1,29 @@
-.box {        
-	height: 150px;
-	width: 150px;
-	border: 1px solid #CCC;
-	float:left;
-	border-collapse: collapse;
+h1 {
+	text-align: center;
+	font-size: 24px;
+	font-family: Hevetica, Arial, San-Serif;
+	color:white;
 }
 
-#container {
-	margin:auto;
+#gameboard {
+	border: 1px  #ccc;
+	margin: auto;
 	height: 456px;
 	width: 456px;
-	border-collapse: collapse;
+}
+.box {        
+	border: 1px solid #ccc;
+	height: 150px;
+	width: 150px;
+	float:left;
+}
+html {
+	
+    background: url(/hanabarberabackground.jpg) no-repeat center center fixed; 
+    /*opacity : 0.2;*/
+    /*z-index: -1;*/
+    -webkit-background-size: cover;
+    -moz-background-size:cover;
+    -o-background-size:cover;
+    background-size:cover;
 }
