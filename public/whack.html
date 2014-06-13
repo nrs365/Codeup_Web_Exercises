@@ -1,26 +1,14 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<meta charset"utf-8">
+<!-- saved from url=(0028)http://codeup.dev/whack.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset"utf-8"="">
 	<title>Whack</title>
-	<link rel="stylesheet" href="/css/whack.css">
-	<script src="/js/jquery.js"></script>
+	<link rel="stylesheet" href="http://codeup.dev/css/whack.css">
+	<script src="/Whack_files/jquery.js"></script>
 	<script>
 	</script>
 </head>
 <body>
-<!--Create your HTML markup and CSS to position your holes. These will be element that your mole will pop in and out of.
-
-Randomly select a hole on page load and change its background color to red. You may want to nest another element, and use an animated method like .fadeIn().
-
-Change the red background to use an image. This could be a mole, or any other image you'd like to use.
-
-Update the code to remove the mole when it is clicked.
-
-Add score. Each time the mole is successfully clicked, increase the displayed score by 1.-->
-
-	<!-- <img id="mole" src="moroccomole.jpg"> -->
-	
 	<script>
 		$(document).ready(function() {
 	 	//$('#mole').fadeIn(1000);
@@ -32,12 +20,14 @@ Add score. Each time the mole is successfully clicked, increase the displayed sc
 		console.log(random_place);
 		var game_square = $('.box');
 		//console.log(game_square[2]);
-		$(game_square[random_place]).html('<img class="mole" src="moroccomole.jpg" height="150" width="140">');
+		$(game_square[random_place]).html('<img class="mole" src="moroccomole.jpg" height="150" width="150">');
 	});
 	 </script>
 	 <!-- <div class="box"> -->
 		<!-- <img class="mole" src="moroccomole.jpg" height="150" width="140"> -->
 	<!-- </div>	   -->
+	<h1>Whack-A-Mole</h1>
+
 	<div id="gameboard">	
 		<div class="box"></div>
 		<div class="box"></div>
@@ -49,5 +39,5 @@ Add score. Each time the mole is successfully clicked, increase the displayed sc
 		<div class="box"></div>
 		<div class="box"></div>
 	</div>	
-</body>
-</html>
+
+</body></html>
