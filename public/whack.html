@@ -11,21 +11,32 @@
 <body>
 	<script>
 		$(document).ready(function() {
-	 	//$('#mole').fadeIn(1000);
+		function place_random_gamesquare() {
+                
+					// clear all squares
+					$('.box').empty();
 
-	 	$('#mole').click(function(){
-	 		$(this).fadeOut();
+                    var random_place = Math.floor((Math.random(0,8) * 9) + 1);
+                    var game_square = $('.box');
+
+                    $(game_square[random_place]).html('<img class="mole" src="moroccomole.jpg" height="150" width="150">');    
+                    };
+
+            function whack() {
+                    $('.mole').click(function(){
+                        $(this).fadeOut();
+                         });
+                    };
+
+                // Begin Main Game Logic
+
+                setInterval(function() {
+                    place_random_gamesquare();
+                    whack();
+                }, 2000);
 		});
-		var random_place = Math.floor((Math.random(0,8) * 8) + 1);
-		console.log(random_place);
-		var game_square = $('.box');
-		//console.log(game_square[2]);
-		$(game_square[random_place]).html('<img class="mole" src="moroccomole.jpg" height="150" width="150">');
-	});
 	 </script>
-	 <!-- <div class="box"> -->
-		<!-- <img class="mole" src="moroccomole.jpg" height="150" width="140"> -->
-	<!-- </div>	   -->
+
 	<h1>Whack-A-Mole</h1>
 
 	<div id="gameboard">	
