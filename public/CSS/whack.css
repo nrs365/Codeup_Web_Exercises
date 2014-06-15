@@ -1,10 +1,27 @@
 h1 {
 	text-align: center;
-	font-size: 24px;
-	font-family: Hevetica, Arial, San-Serif;
+	font-size: 48px;
+	font-family: Helvetica, Arial, Sans-Serif;
 	color:white;
 }
 
+h3 {
+	text-align: left;
+	font-size: 36px;
+	font-family: Helvetica, Arial, Sans-Serif;
+	color:white;
+}
+
+.box, .item {
+	height: 150px;
+	width: 150px;	
+}
+.item {
+	display: none;
+	background: url(/moroccomole.jpg) no-repeat;
+	background-size: contain;
+	background-position: center;
+}
 #gameboard {
 	border: 1px  #ccc;
 	margin: auto;
@@ -18,9 +35,8 @@ h1 {
 	float:left;
 }
 html {
-	
-    background: url(/hanabarberabackground.jpg) no-repeat center center fixed; 
-    /*opacity : 0.2;*/
+    background: url(/hanabarberabackground.jpg) no-repeat center center fixed;
+    /*opacity: 0.2;*/
     /*z-index: -1;*/
     -webkit-background-size: cover;
     -moz-background-size:cover;
