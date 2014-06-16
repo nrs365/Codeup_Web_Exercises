@@ -18,8 +18,6 @@ $theme = (!isset($_GET['theme'])) ? 'whack' : $_GET['theme'];
 	</script>
 </head>
 <body>
-	
-
 	<h1>Whack-a-<?= $theme?></h1>
 	<h3 id="score"></h3>
 	<input id="start_button" type="button" value="start game">
@@ -76,7 +74,7 @@ $theme = (!isset($_GET['theme'])) ? 'whack' : $_GET['theme'];
         	var random_place = Math.floor((Math.random(0,8) * 8) + 1);
         	var game_square = $('.item');
         	$(game_square[random_place]).fadeIn(200).delay(500).fadeOut(200);
-        	// $(game_square[random_place]).html('.mole');    
+        	// $(game_square[random_place]).addClass('.mole');    
        	};
         
         function start_game() {
@@ -107,11 +105,11 @@ $theme = (!isset($_GET['theme'])) ? 'whack' : $_GET['theme'];
 	        }, 15100);
         }
 
-        $('#gameboard').on('click', '.mole', function(){
+        $('#gameboard').on('click', '.item', function(){
         	$(this).fadeOut();
         	score++;
         	$('#score').text("Score: " + score);
-			// console.log(score);
+			console.log(score);
 			
         });
 
