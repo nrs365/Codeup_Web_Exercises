@@ -5,7 +5,6 @@
 	// } else {
 	// 	$theme = $_GET['theme'];
 	// }
-
 $theme = (!isset($_GET['theme'])) ? 'whack' : $_GET['theme'];
 ?>
 <!DOCTYPE html>
@@ -21,10 +20,21 @@ $theme = (!isset($_GET['theme'])) ? 'whack' : $_GET['theme'];
 <body>
 	
 
-	<h1>Whack-A-Mole</h1>
+	<h1>Whack-a-<?= $theme?></h1>
 	<h3 id="score"></h3>
 	<input id="start_button" type="button" value="start game">
+	<br>
+	<label for="theme">Select a theme</label>
+	<form class="drop_down_menu" action="">
+		<select id="theme" name="theme">
+		<option value="mole">Mole</option>
+		<option value="Titan">Titan</option>
+		<option value="Instructor">Instructor</option>
+		<option value="unknown">unknown</option>
+		</select>
 
+		<button type="submit">Submit</button>
+	</form>
 	<div id="gameboard">	
 		<div class="box">
 			<div class="item"></div>
