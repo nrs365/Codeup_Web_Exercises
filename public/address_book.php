@@ -1,11 +1,12 @@
 <?php
+require_once('classes/address_data_store.php');
+
 $address_book = [];
 $entry = []; 
 $filename = './addressbook.csv';
-require_once('address_data_store.php');
 
 $ads = new Address_data_store('./addressbook.csv');
-$address_book = $ads->open_file();
+$address_book = $ads->read_csv();
 
 if(!empty($_POST)) {
 	if (empty($_POST['name']) || empty($_POST['address']) || empty($_POST['city']) || empty($_POST['zip'])) {
@@ -13,13 +14,13 @@ if(!empty($_POST)) {
 	} else { 
 		$entry = [$_POST['name'], $_POST['address'], $_POST['city'], $_POST['state'], $_POST['zip'], $_POST['phone']];
 		array_push($address_book, $entry);
-		$ads->save_csv($address_book);
+		$ads->write_csv($address_book);
 	}
 }
 if (isset($_GET['key'])) {
 	unset($address_book[$_GET['key']]);
 	header('Location: address_book.php');
-	$ads->save_csv($address_book);
+	$ads->write_csv($address_book);
 }
 if(isset($_FILES['upload'])) {
 	var_dump($_FILES);
@@ -30,9 +31,9 @@ if(isset($_FILES['upload'])) {
 	move_uploaded_file($_FILES['upload']['tmp_name'], $saved_filename);
 
 	$uploadedfile = new Address_data_store($saved_filename);
-	$uploadedentry = $uploadedfile->open_file();
+	$uploadedentry = $uploadedfile->read_csv();
 	$address_book = array_merge($address_book, $uploadedentry); 
-	$ads->save_csv($address_book);
+	$ads->write_csv($address_book);
 }
 ?>
 <!DOCTYPE html>
@@ -40,9 +41,20 @@ if(isset($_FILES['upload'])) {
 <head>
 	<meta charset="utf-8">
 	<title>Address Book</title>
+	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="/css/journal_bootstrap.css">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="/js/bootstrap.min.js"></script>
 </head>
 <body>
-
+	<h1>Address Book</h1>
+	
 	<table border="1">
 	<tr>
 		<th>Name</th>
