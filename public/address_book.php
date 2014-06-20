@@ -1,4 +1,5 @@
 <?php
+
 require_once('classes/address_data_store.php');
 
 $address_book = [];
@@ -8,20 +9,24 @@ $filename = './addressbook.csv';
 $ads = new Address_data_store('./addressbook.csv');
 $address_book = $ads->read();
 
+class InvalidInputException extends Exception {}
+
 try {
 	if(!empty($_POST)) {
 		if (empty($_POST['name']) || empty($_POST['address']) || empty($_POST['city']) || empty($_POST['zip'])) {
 			throw new Exception("Please enter all required fields.");
 		} else if ((strlen($_POST['name']) >= 125) || (strlen($_POST['address']) >= 125) || (strlen($_POST['city']) >= 125) || (strlen($_POST['zip']) >= 125)) {
-			throw new Exception("Input cannot be longer than 125 characters.");
+			throw new InvalidInputException("Input cannot be longer than 125 characters.");
 		} else { 
 			$entry = [$_POST['name'], $_POST['address'], $_POST['city'], $_POST['state'], $_POST['zip'], $_POST['phone']];
 			array_push($address_book, $entry);
 			$ads->write($address_book);
 		}
-	}
-} catch(Exception $exception) {
+	
+} catch (InvalidInputException $exception) {
 	$msg = $exception->getMessage() . PHP_EOL;
+} catch (Exception $exception) {
+	echo "Exception: " . $exception->getMessage() . PHP_EOL;
 }
 
 if (isset($_GET['key'])) {
@@ -42,6 +47,7 @@ if(isset($_FILES['upload'])) {
 	$address_book = array_merge($address_book, $uploadedentry); 
 	$ads->write($address_book);
 }
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -88,6 +94,7 @@ if(isset($_FILES['upload'])) {
 	</tr>
 		<? endforeach ?>
 	</table>
+
 	<form method="POST" action="address_book.php">
 		<p>
 			<label for="name">Name: </label>
@@ -117,6 +124,7 @@ if(isset($_FILES['upload'])) {
 			<button type="submit" value="save_entry">Save Entry</button>
 		</p>
 	</form>
+
 	<form method="POST" enctype="multipart/form-data" action="address_book.php">
 		<p>
 			<label for="upload">Upload: </label>
@@ -126,5 +134,6 @@ if(isset($_FILES['upload'])) {
 			<button type="submit">Upload File</button>
 		</p>
 	</form>
+
 </body>
 </html>
