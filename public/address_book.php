@@ -8,17 +8,22 @@ $filename = './addressbook.csv';
 $ads = new Address_data_store('./addressbook.csv');
 $address_book = $ads->read();
 
-if(!empty($_POST)) {
-	if (empty($_POST['name']) || empty($_POST['address']) || empty($_POST['city']) || empty($_POST['zip'])) {
-		throw new Exception("Please enter all required fields.");
-	} else if ((strlen($_POST['name']) >= 125) || (strlen($_POST['address']) >= 125) || (strlen($_POST['city']) >= 125) || (strlen($_POST['zip']) >= 125)) {
-		throw new Exception("Input cannot be longer than 125 characters.");
-	} else { 
-		$entry = [$_POST['name'], $_POST['address'], $_POST['city'], $_POST['state'], $_POST['zip'], $_POST['phone']];
-		array_push($address_book, $entry);
-		$ads->write($address_book);
+try {
+	if(!empty($_POST)) {
+		if (empty($_POST['name']) || empty($_POST['address']) || empty($_POST['city']) || empty($_POST['zip'])) {
+			throw new Exception("Please enter all required fields.");
+		} else if ((strlen($_POST['name']) >= 125) || (strlen($_POST['address']) >= 125) || (strlen($_POST['city']) >= 125) || (strlen($_POST['zip']) >= 125)) {
+			throw new Exception("Input cannot be longer than 125 characters.");
+		} else { 
+			$entry = [$_POST['name'], $_POST['address'], $_POST['city'], $_POST['state'], $_POST['zip'], $_POST['phone']];
+			array_push($address_book, $entry);
+			$ads->write($address_book);
+		}
 	}
+} catch(Exception $exception) {
+	$msg = $exception->getMessage() . PHP_EOL;
 }
+
 if (isset($_GET['key'])) {
 	unset($address_book[$_GET['key']]);
 	header('Location: address_book.php');
@@ -57,6 +62,10 @@ if(isset($_FILES['upload'])) {
 <body>
 	<h1>Address Book</h1>
 	
+	<?if (isset($msg)) : ?>
+		<? echo $msg; ?>
+	<? endif; ?>	
+	
 	<table border="1">
 	<tr>
 		<th>Name</th>
@@ -82,23 +91,23 @@ if(isset($_FILES['upload'])) {
 	<form method="POST" action="address_book.php">
 		<p>
 			<label for="name">Name: </label>
-				<input type="text" id="name" name="name" required>
+				<input type="text" id="name" name="name">
 		</p>
 		<p>
 			<label for="address">Street Address: </label>
-				<input type="text" id="address" name="address" required>
+				<input type="text" id="address" name="address">
 		</p>
 		<p>
 			<label for="city">City:  </label>
-				<input type="text" id="city" name="city" required>
+				<input type="text" id="city" name="city">
 		</p>
 		<p>
 			<label for="state">State: </label>
-				<input type="text" id="state" name="state" required>
+				<input type="text" id="state" name="state">
 		</p>	
 		<p>
 			<label for="zip">ZIP: </label>
-				<input type="text" id="zip" name="zip" required>	
+				<input type="text" id="zip" name="zip">	
 		</p>
 		<p>
 			<label for="phone">Phone: </label>
