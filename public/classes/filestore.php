@@ -3,16 +3,43 @@
 class Filestore {
 
     public $filename = '';
+    public $is_csv = '';
 
     function __construct($filename = '') 
     {
         $this->filename = $filename;
+        $this->is_csv = $this->check_file();
     }
 
+    public function check_file() {
+        $is_csv = substr($this->filename, -3);//need to count from the last end 
+        
+        if($is_csv === "csv") {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function read() {
+        if ($this->is_csv) {
+            return $this->read_csv();
+        } else {
+            return $this->read_lines();
+        }
+    }
+
+    public function write($array) {
+        if ($this->is_csv) {
+            $this->write_csv($array);
+        } else {
+            $this->write_lines($array);
+        }
+    }
     /**
      * Returns array of lines in $this->filename
      */
-    function read_lines()
+    private function read_lines()
     {
        // todo list 
         $list_array = [];
@@ -20,8 +47,8 @@ class Filestore {
             $filesize = filesize($this->filename);
             $read = fopen($this->filename, 'r');
             $list_string = trim(fread($read, $filesize));
-            $list_array = explode("\n", $list_string);
             fclose($read);
+            $list_array = explode("\n", $list_string);
         }
         return $list_array; 
     }      
@@ -29,7 +56,7 @@ class Filestore {
     /**
      * Writes each element in $array to a new line in $this->filename
      */
-    function write_lines($array)
+    private function write_lines($array)
     {
             // todolist
         $saved_file = fopen($this->filename, 'w');
@@ -41,7 +68,7 @@ class Filestore {
     /**
      * Reads contents of csv $this->filename, returns an array
      */
-    function read_csv()
+    private function read_csv()
     {
         // address book
         $array = [];
@@ -62,7 +89,7 @@ class Filestore {
     /**
      * Writes contents of $array to csv $this->filename
      */
-    function write_csv($array)
+    private function write_csv($array)
     {
         // address book
         $handle = fopen($this->filename,'w');
