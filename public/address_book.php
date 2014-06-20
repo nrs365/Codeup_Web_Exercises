@@ -6,21 +6,23 @@ $entry = [];
 $filename = './addressbook.csv';
 
 $ads = new Address_data_store('./addressbook.csv');
-$address_book = $ads->read_csv();
+$address_book = $ads->read();
 
 if(!empty($_POST)) {
 	if (empty($_POST['name']) || empty($_POST['address']) || empty($_POST['city']) || empty($_POST['zip'])) {
-	echo "Please enter all required fields.";
+		throw new Exception("Please enter all required fields.");
+	} else if ((strlen($_POST['name']) >= 125) || (strlen($_POST['address']) >= 125) || (strlen($_POST['city']) >= 125) || (strlen($_POST['zip']) >= 125)) {
+		throw new Exception("Input cannot be longer than 125 characters.");
 	} else { 
 		$entry = [$_POST['name'], $_POST['address'], $_POST['city'], $_POST['state'], $_POST['zip'], $_POST['phone']];
 		array_push($address_book, $entry);
-		$ads->write_csv($address_book);
+		$ads->write($address_book);
 	}
 }
 if (isset($_GET['key'])) {
 	unset($address_book[$_GET['key']]);
 	header('Location: address_book.php');
-	$ads->write_csv($address_book);
+	$ads->write($address_book);
 }
 if(isset($_FILES['upload'])) {
 	var_dump($_FILES);
@@ -33,7 +35,7 @@ if(isset($_FILES['upload'])) {
 	$uploadedfile = new Address_data_store($saved_filename);
 	$uploadedentry = $uploadedfile->read_csv();
 	$address_book = array_merge($address_book, $uploadedentry); 
-	$ads->write_csv($address_book);
+	$ads->write($address_book);
 }
 ?>
 <!DOCTYPE html>
@@ -66,16 +68,16 @@ if(isset($_FILES['upload'])) {
 		<th>Delete</th>
 	</tr>
 	<tr>
-		<?php foreach ($address_book as $key => $entry): ?>
-			<?if (!isset($entry['5'])) : ?>
+		<? foreach ($address_book as $key => $entry): ?>
+			<? if (!isset($entry['5'])) : ?>
 			<? array_push($entry, '')?>
 			<? endif ?>
-		<?php foreach ($entry as $value): ?>
+		<? foreach ($entry as $value): ?>
 			<td><?= $value ?></td>
-		<?php endforeach ?>
+		<? endforeach ?>
 		<td><?= "<a href=\"?key=$key\">Delete</a>" ?></td>
 	</tr>
-		<?php endforeach ?>
+		<? endforeach ?>
 	</table>
 	<form method="POST" action="address_book.php">
 		<p>
