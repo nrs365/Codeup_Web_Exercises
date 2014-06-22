@@ -22,6 +22,7 @@ try {
 			array_push($address_book, $entry);
 			$ads->write($address_book);
 		}
+	}	
 	
 } catch (InvalidInputException $exception) {
 	$msg = $exception->getMessage() . PHP_EOL;
