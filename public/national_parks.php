@@ -16,10 +16,13 @@ $dbc->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 // $stmt = $dbc->query('SELECT name, location, date_established, area_in_acres FROM national_parks');
 // $stmt = $dbc->query('SELECT * FROM national_parks');
 
-$query = 'SELECT * FROM national_parks LIMIT 4 OFFSET ' . getOffset();
 //$park = $dbc->query('SELECT count(*) FROM national_parks')->fetchColumn();
-$count = $dbc->query('SELECT count(*) FROM national_parks')->fetchColumn();
-$parks = $dbc->query($query)->fetchAll(PDO::FETCH_ASSOC);
+$stmt  = $dbc->query('SELECT count(*) FROM national_parks');
+$count = $stmt->fetchColumn();
+
+$query = 'SELECT * FROM national_parks LIMIT 4 OFFSET ' . getOffset();
+$stmt  = $dbc->query($query);
+$parks = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
 $numPages = ceil($count / 4);
