@@ -1,22 +1,10 @@
 <?php
-
-function getOffset() {
-	$page = isset($_GET['page']) ? $_GET['page'] : 1;
-	return ($page - 1) * 4;
-}
-
 // Get new instance of PDO object
 $dbc = new PDO('mysql:host=127.0.0.1;dbname=codeup_pdo_test_db', 'nicole', 'bakagaki');
 
 // Tell PDO to throw exceptions on error
 $dbc->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-// $dbc->getAttribute(PDO::ATTR_CONNECTION_STATUS) . "\n";
-
-// $stmt = $dbc->query('SELECT name, location, date_established, area_in_acres FROM national_parks');
-// $stmt = $dbc->query('SELECT * FROM national_parks');
-
-//$park = $dbc->query('SELECT count(*) FROM national_parks')->fetchColumn();
 $stmt  = $dbc->query('SELECT count(*) FROM national_parks');
 $count = $stmt->fetchColumn();
 
@@ -29,6 +17,27 @@ $numPages = ceil($count / 4);
 $next_page = $page + 1;
 $previous_page = $page - 1;
 
+//for pagentation
+function getOffset() {
+	$page = isset($_GET['page']) ? $_GET['page'] : 1;
+	return ($page - 1) * 4;
+}
+//starting the form
+if (isset($_POST['name']) && isset($_POST['location']) && isset($_POST['date_established']) && isset($_POST['area_in_acres']) && isset($_POST['description'])) {
+	//add try catch throw for exceptions
+
+	//logic to add to database 
+//if($_POST) {	
+	$stmt = $dbc->prepare('INSERT INTO national_parks (name, location, date_established, area_in_acres, description) VALUES (:name, :location, :date_established, :area_in_acres, :description)');
+
+	$stmt->bindValue(':name', $_POST['name'], PDO::PARAM_STR);
+	$stmt->bindValue(':location', $_POST['location'], PDO::PARAM_STR);
+	$stmt->bindValue(':date_established', $_POST['date_established'], PDO::PARAM_STR);
+	$stmt->bindValue(':area_in_acres', $_POST['area_in_acres'], PDO::PARAM_INT);
+	$stmt->bindValue(':description', $_POST['description'], PDO::PARAM_STR);
+	$stmt->execute();
+}
+//var_dump($_POST);	
 ?>
 
 <!DOCTYPE html>
@@ -65,8 +74,8 @@ $previous_page = $page - 1;
         </ul>
     </div>
 
+    <h3>Add a park</h3>
     <form method="POST" action="/national_parks.php">
-    	<h3>Add a park</h3>
     	<p>
 	   		<label for="name">Name</label>
 	   		<input type="text" id="name" name="name">
@@ -88,7 +97,7 @@ $previous_page = $page - 1;
 	  		<input type="text" id="description" name="description">
 	  	</p>
 	  	<p>
-	  		<button type="submit">Add park</button>
+	  		<input type="submit" value="submit park">
 	  	</p>		
 	</form>  	 		   		
 </body>
