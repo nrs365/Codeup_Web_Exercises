@@ -45,6 +45,7 @@ $previous_page = $page - 1;
     		<th>Location</th>
     		<th>Date Established</th>
    			<th>Area in Acres</th>
+   			<th>Description</th>
    		</tr>
 		
 		<tr>
@@ -54,6 +55,7 @@ $previous_page = $page - 1;
     			<td><?= $park['location']; ?></td>
     			<td><?= $park['date_established']; ?></td>
     			<td><?= $park['area_in_acres']; ?></td>
+    			<td><?= $park['description']; ?></td>
     		</tr>
     	<? endforeach; ?>	
     	</table>
@@ -62,5 +64,32 @@ $previous_page = $page - 1;
           <li class="next"><a href="<?="?page=$next_page"?>">Next</a></li>
         </ul>
     </div>
+
+    <form method="POST" action="/national_parks.php">
+    	<h3>Add a park</h3>
+    	<p>
+	   		<label for="name">Name</label>
+	   		<input type="text" id="name" name="name">
+	   	</p>
+	   	<p>
+	   		<label for="location">Location</label>
+	   		<input type="text" id="location" name="location">
+	   	</p>	
+	   	<p>
+	        <label for="date_established">Date Established<label>
+	        <input type="text" id="date_established" name="date_established">
+	   	</p>
+	   	<p>
+	   		<label for="area_in_acres">Area in Acres</label>
+	   		<input type="text" id="area_in_acres" name="area_in_acres">
+	  	</p>
+	  	<p>
+	  		<label for="description">Description</label>
+	  		<input type="text" id="description" name="description">
+	  	</p>
+	  	<p>
+	  		<button type="submit">Add park</button>
+	  	</p>		
+	</form>  	 		   		
 </body>
 </html>
