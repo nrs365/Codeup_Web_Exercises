@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>backbone.js Practice (Hello World)</title>
+</head>
+<body>
+
+
+<script src="js/jquery.js"></script>
+<script src="js/underscore.js"></script>
+<script src="js/backbone.js"></script>
+
+<script>
+(function($){
+
+	var ListView = Backbone.View.extend({
+		el: $('body'),
+
+		initialize:function(){
+			_.bindAll(this, 'render');
+
+			this.render();
+		},
+
+		render: function(){
+			$(this.el).append("<url><li>hello world</li></ul>");
+		}
+	});
+
+	var ListView = new ListView();
+})(jQuery);
+</script>
+</body>
+</html>
